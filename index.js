@@ -1,6 +1,6 @@
 const Fighter = require("./src/Fighter.js");
 const Weapon = require("./src/Weapon.js");
-const Protection = require("./src/Protection.js");
+const Shield = require("./src/Shield.js");
 
 /** Create Heracles  */
 const heracles = new Fighter("🧔 Heracles", 20, 6);
@@ -8,10 +8,10 @@ const heracles = new Fighter("🧔 Heracles", 20, 6);
 /** Create the opponent  */
 const boar = new Fighter("🐗 Erymanthian Boar", 25, 12);
 
-const sword = new Weapon("Sword", 10);
+const sword = new Weapon("Sword");
 heracles.weapon = sword;
 
-const shield = new Protection("Shield", 10);
+const shield = new Shield("Shield");
 heracles.shield = shield;
 
 /**
@@ -39,11 +39,9 @@ const score = (fighter1, fighter2) => {
 let round = 0;
 
 while (heracles.isAlive() && boar.isAlive()) {
-	console.log(boar.life);
 	console.log(`🕛 Round #${round}`);
 
 	heracles.fight(boar);
-	console.log(boar.life);
 	console.log(roundDisplay(heracles, boar));
 
 	boar.fight(heracles);

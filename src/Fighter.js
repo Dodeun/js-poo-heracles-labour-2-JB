@@ -25,14 +25,12 @@ class Fighter {
 	}
 
 	getDamage() {
-		return typeof this.weapon?.damage === "number"
-			? this.weapon.damage + this.strength
-			: this.strength;
+		return this.strength + (this.weapon?.damage ?? 0);
 	}
 
 	getDefense() {
-		return typeof this.shield?.defence === "number"
-			? this.shield.defence + this.dexterity
+		return this.shield
+			? this.shield.protection + this.dexterity
 			: this.dexterity;
 	}
 
